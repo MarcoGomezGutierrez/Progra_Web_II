@@ -68,19 +68,3 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-
-Vue:
-
-    https://www.neoguias.com/tutorial-vue/
-    
-    npm i -g @vue/cli @vue/cli-service-global
-
-Svelte:
-
-    https://bugfender.com/blog/create-your-first-svelte-app/
-
-    Install: npx degit sveltejs/template hobbyland-bugfender
-
-Pixelart scss:
-
-    https://joanleon.dev/css-pixel-art
