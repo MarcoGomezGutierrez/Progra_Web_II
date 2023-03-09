@@ -1,8 +1,10 @@
 import React from 'react';
 import './player.scss'
 
-const GRAVITY = 0.5;
-const JUMP_FORCE = -10;
+const GRAVITY = 0.8;
+const JUMP_FORCE = -20;
+
+const COLISION = 95;
 
 class Player extends React.Component {
     constructor(props) {
@@ -129,7 +131,7 @@ class Player extends React.Component {
                 top: `${this.state.y}px`,
             };
           });
-      } else if (this.state.y <= 500) {
+      } else if (this.state.y < 500-COLISION) {
         this.setState(prevState => ({
           y: prevState.y + prevState.velocityY,
           velocityY: prevState.velocityY + GRAVITY
@@ -141,7 +143,19 @@ class Player extends React.Component {
               top: `${this.state.y}px`,
           };
         });
-      } 
+      } else {
+        this.setState(() => ({
+          y: 500-COLISION,
+          velocityY: 0
+        }), () => {
+          // Actualiza el objeto styles con las nuevas coordenadas
+          this.styles = {
+              ...this.styles,
+              left: `${this.state.x}px`,
+              top: `${this.state.y}px`,
+          };
+        });
+      }
       
       
     }
