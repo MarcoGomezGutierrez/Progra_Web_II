@@ -1,0 +1,12 @@
+<div class="contenedor">
+  <h1>Añadir Tareas</h1>
+  <div class="contenedor-tarea">
+      <input [(ngModel)]="newTask" placeholder="Ingrese una tarea" (keyup.enter)="addTask()" class="formulario">
+      <button (click)="addTask()" class="boton">Agregar</button>    
+  </div>
+
+  <ul class="lista-tareas">
+    <li *ngFor="let task of tasks" class="tarea">{{ task }}</li>
+  </ul>
+</div>
+

@@ -10,8 +10,8 @@ class Player extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            x: 500,
-            y: 0,
+            x: props.x,
+            y: props.y,
             right: true,
             walking: false,
             jumping: false,
@@ -90,8 +90,6 @@ class Player extends React.Component {
                 });
             }
         }
-
-          console.log(this.state.x + ", " + this.state.y)
     };
 
     update = () => {
@@ -131,7 +129,7 @@ class Player extends React.Component {
                 top: `${this.state.y}px`,
             };
           });
-      } else if (this.state.y < 500-COLISION) {
+      } else if (this.state.y < 800-COLISION) {
         this.setState(prevState => ({
           y: prevState.y + prevState.velocityY,
           velocityY: prevState.velocityY + GRAVITY
@@ -145,7 +143,7 @@ class Player extends React.Component {
         });
       } else {
         this.setState(() => ({
-          y: 500-COLISION,
+          y: 800-COLISION,
           velocityY: 0
         }), () => {
           // Actualiza el objeto styles con las nuevas coordenadas

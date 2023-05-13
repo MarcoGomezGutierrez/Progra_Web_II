@@ -1,0 +1,41 @@
+# Ignorar archivos y directorios generados por Flask y su entorno
+
+# Directorio de entorno virtual
+venv/
+
+# Archivos de registro de Flask
+*.pyc
+*.pyo
+__pycache__/
+
+# Archivo de configuración local de Flask
+instance/
+
+# Archivo de base de datos SQLite (si se está utilizando SQLite)
+*.db
+
+# Archivo de registro
+logs/
+
+
+
+# Carpeta de archivos subidos
+uploads/
+
+# Carpeta de entorno de desarrollo local (si se utiliza)
+.env
+
+# Carpeta de dependencias generadas por Flask
+lib/
+
+# Carpeta de dependencias generadas por pip
+lib64/
+
+# Archivo de generación automática de dependencias
+requirements.txt
+
+# Carpeta de generación automática de documentación
+docs/_build/
+
+# Carpeta de archivos de prueba generados automáticamente
+tests/__pycache__/

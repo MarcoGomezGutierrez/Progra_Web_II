@@ -1,20 +1,19 @@
 import React from 'react';
 
-const screenWidth = window.innerWidth;
-const screenHeight = window.innerHeight;
-
 class Platform extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            x: screenWidth,
-            y: Math.round(Math.random() * screenHeight)
+            x: props.x,
+            y: props.y,
+            width: props.width,
+            height: props.height
           };
         this.styles = {
             position: "absolute",
             left: `${this.state.x}px`,
             top: `${this.state.y}px`,
-            width: 100,
+            width: 600,
             height: 100,
             backgroundColor: "red",
         };

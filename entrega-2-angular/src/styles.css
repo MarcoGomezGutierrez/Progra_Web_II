@@ -1,0 +1,10 @@
+body {
+    background-color: rgb(153, 255, 221);
+}
+
+
+ul, ol {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
