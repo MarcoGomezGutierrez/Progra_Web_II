@@ -1,3 +1,28 @@
+/*Cambiar estilo de la barra de scroll*/
+::-webkit-scrollbar {
+    background-color: #c0c0c0;
+    width: 10px;
+    border-radius: 10px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: #7d7d7d;
+    border-radius: 10px;
+  }
+  
+  /* Firefox */
+  ::-moz-scrollbar {
+    background-color: #c0c0c0;
+    min-width: 10px;
+    max-width: 10px;
+    border-radius: 10px;
+  }
+  
+  ::-moz-scrollbar-thumb {
+    background-color: #7d7d7d;
+    border-radius: 10px;
+  }
+
 .contenedor {
     display: flex;
     flex-direction: column;
@@ -53,7 +78,9 @@
     border-radius: 10px;
 
     background-color: #333;
+    overflow: auto;
 
+    margin: 25px;
     padding: 25px;
 
     gap: 25px;
@@ -63,11 +90,39 @@
     font-size: 18px;
 
     background-color: khaki;
+    border-radius: 10px;
     width: 100%;
-    height: 50px;
+    height: auto;
 
     text-align: left;
     display: flex;
     align-items: center;
+    justify-content: space-between;
+
+    padding: 10px 15px;
+    box-sizing: border-box;
+    
 }
 
+.formulario-editar {
+    width: 300px;
+    height: auto;
+    font-size: 20px;
+    color: black;
+    border: 1px solid rgb(4, 21, 67);
+    border-radius: 5px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+.textoTarea {
+    width: 50%;
+    height: auto;
+    word-wrap: break-word; /* Permite que el texto se rompa en varias líneas */
+    overflow-wrap: break-word; /* Asegura que las palabras se ajusten correctamente dentro del contenedor */
+}
+
+.marcada {
+    text-decoration: line-through;
+    color: gray;
+}

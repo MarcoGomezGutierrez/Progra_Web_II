@@ -1,12 +1,22 @@
 <div class="contenedor">
   <h1>Añadir Tareas</h1>
   <div class="contenedor-tarea">
-      <input [(ngModel)]="newTask" placeholder="Ingrese una tarea" (keyup.enter)="addTask()" class="formulario">
-      <button (click)="addTask()" class="boton">Agregar</button>    
+    <input [(ngModel)]="newTask" placeholder="Ingrese una tarea" (keyup.enter)="addTask()" class="formulario">
+    <button (click)="addTask()" class="boton">Agregar</button>    
   </div>
 
   <ul class="lista-tareas">
-    <li *ngFor="let task of tasks" class="tarea">{{ task }}</li>
+    <li *ngFor="let task of tasks; let i = index" class="tarea">
+      <h2 *ngIf="editingIndex !== i" class="textoTarea" [ngClass]="{'marcada': task.completed}">{{ task.name }}</h2>
+      <textarea *ngIf="editingIndex === i" [(ngModel)]="editingTask" class="formulario-editar" rows="5"></textarea>
+      <div style="display: flex; gap: 20px;">
+        <button (click)="editTask(i)" *ngIf="editingIndex !== i" class="boton">Editar</button>
+        <button (click)="marcarTask(i)" *ngIf="editingIndex !== i" class="boton">{{ task.completed ? 'Desmarcar' : 'Marcar' }}</button>
+        <button (click)="deleteTask(i)" *ngIf="editingIndex !== i" class="boton">Borrar</button>
+        <button (click)="saveTask(i)" *ngIf="editingIndex === i" class="boton">Guardar</button>
+        <button (click)="cancelEditTask(i)" *ngIf="editingIndex === i" class="boton">Cancelar</button>
+      </div>
+    </li>
   </ul>
 </div>
 
