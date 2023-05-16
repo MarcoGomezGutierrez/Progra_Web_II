@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ServicioJsonService } from '../servicio-json.service';
+import { SwUpdate } from '@angular/service-worker';
 
 @Component({
   selector: 'app-lista-tareas',
@@ -15,11 +16,18 @@ export class ListaTareasComponent implements OnInit {
   editingTask: string = '';
   editingIndex: number = -1;
 
-  constructor(private servicioJson: ServicioJsonService) { }
+  constructor(private servicioJson: ServicioJsonService, private swUpdate: SwUpdate) { }
 
   // Leer los datos del JSON o Local Storage
   ngOnInit() {
     this.getTasks();
+    if (this.swUpdate.isEnabled) {
+      this.swUpdate.available.subscribe(() => {
+        if (confirm('New version available. Load new version?')) {
+          window.location.reload();
+        }
+      });
+    }
   }
 
   // Añadir el contenido al JSON o Local Storage
