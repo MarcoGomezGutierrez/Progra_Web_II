@@ -24,18 +24,22 @@
         - Arrancar la aplicación en otra terminal:
 
             ```
+            ng build
+            ```
+
+            ```
             ng serve
             ```
         - Posteriormente puedes instalar la aplicación en Local, debido a que tiene implementado una PWA. Cuando arrancas la aplicación normal te dejara instalarla arriba al lado de la barra de busqueda de Google.
 
         ![Descripción de la imagen](src\assets\readme\PWA.PNG)
 
-        - Una vez instalado puedes trabajar Offline, esto implica que no necesitas encender el servidor, puesto que la aplicación guardara todo en el Local Storage y una vez vuelva la conexión con el Servidor API REST volvera a actualizar la información que desactualizada.
+        - Una vez instalado puedes trabajar Offline, esto implica que no necesitas encender el servidor, puesto que la aplicación guardara todo en el Local Storage y una vez vuelva la conexión con el Servidor (API REST) volvera a actualizar la información que quedo desactualizada.
 
     - Trabajo Offline:
 
         - Esto implica dos opciones:
-            - Primera Opción: tener la PWA instalada pero antes has tenido que tener conexión a internet (en desarrollo local siempre va a funcionar sin conexión a internet, localhost).
+            - Primera Opción: tener la PWA instalada, pero antes, tienes que tener conexión a internet (en desarrollo local siempre va a funcionar sin conexión a internet, localhost).
             - Segunda Opción: trabajar sin la PWA.
         - Estas dos opciones siempre van a implicar no tener el servidor arrancado. Puesto que tirara de Local Storage.
 
@@ -60,7 +64,7 @@
         ```
         Este comando se encarga de generar el manifest y el service worker necesario para que funcione correctamente la PWA. También actualiza el index.html para que detecte en que ubicación esta el manifest.
 
-        Para conseguir que funcione de manera Offline, tienes que configurar en el archivo "ngsw-config.json" ubicado en el repositorio raiz, con la ubicación de los archivos que necesitas que se cacheen. Después hay que actualizar el componente que renderiza la Página, en mi caso, "lista-tareas.component.ts" importar el módulo SwUpdate y luego en el método ngOnInit(), que se ejecuta cada vez que se inicia la página, verificar que si hay alguna actualización disponible actualizar la página:
+    Para conseguir que funcione de manera Offline, tienes que configurar en el archivo "ngsw-config.json" ubicado en el repositorio raiz, con la ubicación de los archivos que necesitas que se cacheen. Después hay que actualizar el componente que renderiza la Página, en mi caso, "lista-tareas.component.ts" importar el módulo SwUpdate y luego en el método ngOnInit(), que se ejecuta cada vez que se inicia la página, verificar que si hay alguna actualización disponible actualizar la página:
 
         ```
         if (this.swUpdate.isEnabled) {
@@ -90,7 +94,9 @@
 
         Con esto conseguiremos que se existe un serviceWorker registrarlo en el navegador. Consiguiendo que al cerrar la aplicación o activar desde Application, Service Worker, activar la opcion Offline para confirmar que cuando recargas la PWA siga funcionando.
 
-        ![service-worker](src\assets\readme\service-worker.PNG)
+        
+    ![service-worker](src\assets\readme\service-worker.PNG)
+        
 
 
 
